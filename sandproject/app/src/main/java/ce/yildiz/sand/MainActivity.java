@@ -26,12 +26,12 @@ public class MainActivity extends AppCompatActivity {
         categoriesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Categories Button Clicked", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, Categories.class);
+                Toast.makeText(getApplicationContext(), "CategoriesActivity Button Clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, CategoriesActivity.class);
                 startActivity(intent);
             }
         });
 
-
+        // TODO: Recyclerview
     }
 }

@@ -17,6 +17,7 @@
         android:textColor="@color/header"
         android:gravity="center_horizontal"
         android:textStyle="bold"/>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

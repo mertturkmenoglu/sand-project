@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MyAppsActivity" />
-        <activity android:name=".Categories" />
+        <activity android:name=".CategoriesActivity" />
+        <activity android:name=".CategoryActivity" />
     </application>
 
 </manifest>
