@@ -8,4 +8,8 @@
     <string name="news">News</string>
     <string name="tools">Tools</string>
     <string name="recommendations">Recommendations</string>
+    <string name="category">Category: </string>
+    <string name="download_count">Download Count: </string>
+    <string name="download">Download</string>
+    <string name="versions">Versions</string>
 </resources>
