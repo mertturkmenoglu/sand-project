@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button myAppsButton = findViewById(R.id.myAppsButton);
         Button categoriesButton = findViewById(R.id.categoriesButton);
+        Button recommendationsButton = findViewById(R.id.recommendationsButton);
 
         myAppsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,6 +29,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "CategoriesActivity Button Clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, CategoriesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        recommendationsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Recommendations Button Clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, RecommendationActivity.class);
                 startActivity(intent);
             }
         });

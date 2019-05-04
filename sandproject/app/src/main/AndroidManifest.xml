@@ -21,6 +21,7 @@
         <activity android:name=".MyAppsActivity" />
         <activity android:name=".CategoriesActivity" />
         <activity android:name=".CategoryActivity" />
+        <activity android:name=".RecommendationActivity" />
     </application>
 
 </manifest>

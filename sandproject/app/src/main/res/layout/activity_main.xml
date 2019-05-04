@@ -40,6 +40,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/categoriesButton"
             android:text="@string/categories"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recommendationsButton"
+            android:text="@string/recommendations"/>
     </LinearLayout>
 
     <View
