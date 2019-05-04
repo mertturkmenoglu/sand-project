@@ -3,4 +3,6 @@
     <dimen name="header">32sp</dimen>
     <dimen name="sp24">24sp</dimen>
     <dimen name="sp20">20sp</dimen>
+    <dimen name="sp16">16sp</dimen>
+    <dimen name="sp8">8sp</dimen>
 </resources>
