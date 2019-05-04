@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "My Apps Button Clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, MyAppsActivity.class);
+                startActivity(intent);
             }
         });
 

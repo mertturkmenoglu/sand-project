@@ -23,6 +23,10 @@
         <activity android:name=".CategoryActivity" />
         <activity android:name=".RecommendationActivity" />
         <activity android:name=".AppActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
