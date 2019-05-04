@@ -1,4 +1,4 @@
-package ce.yildiz.sand;
+package ce.yildiz.sand;com.example.sandproject
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
