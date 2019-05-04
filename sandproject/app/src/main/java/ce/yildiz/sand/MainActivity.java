@@ -1,5 +1,6 @@
 package ce.yildiz.sand;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,7 +27,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Categories Button Clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, Categories.class);
+                startActivity(intent);
             }
         });
+
+
     }
 }
