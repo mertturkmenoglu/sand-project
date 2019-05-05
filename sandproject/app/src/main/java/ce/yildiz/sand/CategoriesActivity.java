@@ -7,6 +7,8 @@ import android.widget.Toast;
 import android.widget.Button;
 import android.view.View;
 
+import ce.yildiz.sand.category.CategoryActivity;
+
 public class CategoriesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

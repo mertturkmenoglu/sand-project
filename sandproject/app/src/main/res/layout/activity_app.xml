@@ -18,51 +18,54 @@
         android:gravity="center_horizontal"
         tools:text="App Name"/>
 
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/black"/>
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/appActivityCategoryName"
-        android:textSize="@dimen/sp20"
-        android:textColor="@android:color/black"
-        android:text="@string/category"/>
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/appActivityDownloadCount"
-        android:textSize="@dimen/sp20"
-        android:textColor="@android:color/black"
-        android:text="@string/download_count"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/appActivityDownloadButton"
-        android:text="@string/download"
-        android:textSize="@dimen/sp20"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/appActivityCategoryName"
+            android:textSize="@dimen/sp20"
+            android:textColor="@android:color/black"
+            android:text="@string/category"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/black"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/appActivityDownloadCount"
+            android:textSize="@dimen/sp20"
+            android:textColor="@android:color/black"
+            android:text="@string/download_count"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/appActivityVersions"
-        android:textSize="@dimen/sp20"
-        android:textColor="@android:color/black"
-        android:text="@string/versions"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/appActivityVersions"
+            android:textSize="@dimen/sp20"
+            android:textColor="@android:color/black"
+            android:text="@string/versions"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/appActivityRecyclerView"
-        android:scrollbars="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/appActivityDownloadButton"
+            android:text="@string/download"
+            android:textSize="@dimen/sp20"/>
+
+    </LinearLayout>
 
 </LinearLayout>

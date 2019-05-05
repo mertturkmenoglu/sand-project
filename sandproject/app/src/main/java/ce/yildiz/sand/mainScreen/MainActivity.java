@@ -1,4 +1,4 @@
-package ce.yildiz.sand;
+package ce.yildiz.sand.mainScreen;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -13,9 +13,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import ce.yildiz.sand.AddAppActivity;
+import ce.yildiz.sand.CategoriesActivity;
+import ce.yildiz.sand.databaseUtils.ItemContract;
+import ce.yildiz.sand.databaseUtils.ItemDBHelper;
+import ce.yildiz.sand.MyAppsActivity;
+import ce.yildiz.sand.R;
+import ce.yildiz.sand.RecommendationActivity;
+
 public class MainActivity extends AppCompatActivity {
     private SQLiteDatabase mDatabase;
-    private GenericRecyclerAdapter mAdapter;
+    private PopularityAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         // Find recyclerview and set layout and adapter
         RecyclerView recyclerView = findViewById(R.id.mainActivityRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter = new GenericRecyclerAdapter(this, getAllItems());
+        mAdapter = new PopularityAdapter(this, getAllItems());
         recyclerView.setAdapter(mAdapter);
         recyclerView.setHasFixedSize(true);
 
@@ -99,7 +107,8 @@ public class MainActivity extends AppCompatActivity {
                 null,
                 null,
                 null,
-                ItemContract.ItemEntry.COLUMN_DOWNLOAD + " DESC"
+                //ItemContract.ItemEntry.COLUMN_DOWNLOAD + " DESC"
+                null
         );
     }
 

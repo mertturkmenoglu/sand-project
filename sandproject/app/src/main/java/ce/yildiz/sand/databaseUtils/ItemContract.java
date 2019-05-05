@@ -1,4 +1,4 @@
-package ce.yildiz.sand;
+package ce.yildiz.sand.databaseUtils;
 
 import android.provider.BaseColumns;
 

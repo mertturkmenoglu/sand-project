@@ -1,9 +1,9 @@
-package ce.yildiz.sand;
+package ce.yildiz.sand.databaseUtils;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import ce.yildiz.sand.ItemContract.*;
+import ce.yildiz.sand.databaseUtils.ItemContract.*;
 
 public class ItemDBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "itemList.db";

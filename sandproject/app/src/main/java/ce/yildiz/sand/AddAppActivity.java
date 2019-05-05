@@ -9,6 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import ce.yildiz.sand.databaseUtils.ItemContract;
+import ce.yildiz.sand.databaseUtils.ItemDBHelper;
+import ce.yildiz.sand.mainScreen.MainActivity;
+
 public class AddAppActivity extends AppCompatActivity {
     private EditText mAppName;
     private EditText mCategory;
