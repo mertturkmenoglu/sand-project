@@ -1,4 +1,4 @@
-package ce.yildiz.sand.mainScreen;
+package ce.yildiz.sand.category;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,39 +11,34 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import ce.yildiz.sand.AppActivity;
-import ce.yildiz.sand.databaseUtils.ItemContract;
 import ce.yildiz.sand.R;
+import ce.yildiz.sand.databaseUtils.ItemContract;
 
-
-public class PopularityAdapter extends RecyclerView.Adapter<PopularityAdapter.ItemViewHolder> {
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ItemViewHolder> {
     private Context mContext;
     private Cursor mCursor;
 
-    public PopularityAdapter(Context context, Cursor cursor) {
+    public CategoryAdapter(Context context, Cursor cursor) {
         this.mContext = context;
         this.mCursor = cursor;
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder {
         public TextView nameText;
-        public TextView popularityText;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
             nameText = itemView.findViewById(R.id.appName);
-            popularityText = itemView.findViewById(R.id.appPopularity);
         }
     }
 
-    @Override
-    public ItemViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public CategoryAdapter.ItemViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        View view = inflater.inflate(R.layout.popularity_list_item, viewGroup, false);
-        return new ItemViewHolder(view);
+        View view = inflater.inflate(R.layout.basic_list_item, viewGroup, false);
+        return new CategoryAdapter.ItemViewHolder(view);
     }
 
-    @Override
-    public void onBindViewHolder(ItemViewHolder itemViewHolder, final int i) {
+    public void onBindViewHolder(CategoryAdapter.ItemViewHolder itemViewHolder, final int i) {
         if (!mCursor.moveToPosition(i)) {
             return;
         }
@@ -52,7 +47,6 @@ public class PopularityAdapter extends RecyclerView.Adapter<PopularityAdapter.It
         final long id = mCursor.getLong(mCursor.getColumnIndex(ItemContract.ItemEntry._ID));
 
         itemViewHolder.nameText.setText(name);
-        itemViewHolder.popularityText.setText(String.valueOf(i + 1));
         itemViewHolder.itemView.setTag(id);
 
         // TODO: Update this method later
@@ -85,3 +79,4 @@ public class PopularityAdapter extends RecyclerView.Adapter<PopularityAdapter.It
     }
 
 }
+

@@ -41,7 +41,7 @@ public class AppActivity extends AppCompatActivity {
         downloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Toast.makeText(getApplicationContext(), "UPDATE THIS METHOD", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "UPDATE THIS METHOD", Toast.LENGTH_SHORT).show();
             }
         });
     }
