@@ -47,6 +47,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/recommendationsButton"
             android:text="@string/recommendations"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/addAppButton"
+            android:text="@string/addApp"/>
     </LinearLayout>
 
     <View
