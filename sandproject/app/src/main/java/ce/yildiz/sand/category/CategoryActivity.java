@@ -12,7 +12,6 @@ import android.widget.TextView;
 import ce.yildiz.sand.R;
 import ce.yildiz.sand.databaseUtils.ItemContract;
 import ce.yildiz.sand.databaseUtils.ItemDBHelper;
-import ce.yildiz.sand.mainScreen.PopularityAdapter;
 
 public class CategoryActivity extends AppCompatActivity {
     private SQLiteDatabase mDatabase;

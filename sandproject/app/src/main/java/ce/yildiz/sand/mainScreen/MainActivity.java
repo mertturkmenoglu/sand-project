@@ -19,7 +19,7 @@ import ce.yildiz.sand.databaseUtils.ItemContract;
 import ce.yildiz.sand.databaseUtils.ItemDBHelper;
 import ce.yildiz.sand.myApps.MyAppsActivity;
 import ce.yildiz.sand.R;
-import ce.yildiz.sand.RecommendationActivity;
+import ce.yildiz.sand.recommendations.RecommendationActivity;
 
 public class MainActivity extends AppCompatActivity {
     private SQLiteDatabase mDatabase;
@@ -107,8 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 null,
                 null,
                 null,
-                //ItemContract.ItemEntry.COLUMN_DOWNLOAD + " DESC"
-                null
+                ItemContract.ItemEntry.COLUMN_DOWNLOAD + " DESC"
         );
     }
 

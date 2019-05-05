@@ -60,6 +60,7 @@ public class AddAppActivity extends AppCompatActivity {
         cv.put(ItemContract.ItemEntry.COLUMN_CATEGORY, category);
         cv.put(ItemContract.ItemEntry.COLUMN_DOWNLOAD, downloadCount);
         cv.put(ItemContract.ItemEntry.COLUMN_VERSION, version);
+        cv.put(ItemContract.ItemEntry.COLUMN_LOADED, 0);
 
         mDatabase.insert(ItemContract.ItemEntry.TABLE_NAME, null, cv);
     }

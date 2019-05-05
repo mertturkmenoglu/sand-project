@@ -21,7 +21,7 @@
         <activity android:name=".myApps.MyAppsActivity" />
         <activity android:name=".CategoriesActivity" />
         <activity android:name=".category.CategoryActivity" />
-        <activity android:name=".RecommendationActivity" />
+        <activity android:name=".recommendations.RecommendationActivity" />
         <activity android:name=".AppActivity" />
         <activity android:name=".AddAppActivity" />
 
