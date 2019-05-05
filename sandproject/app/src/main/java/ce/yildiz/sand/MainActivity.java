@@ -14,24 +14,30 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private SQLiteDatabase mDatabase;
     private GenericRecyclerAdapter mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Open database connection
         ItemDBHelper dbHelper = new ItemDBHelper(this);
         mDatabase = dbHelper.getWritableDatabase();
 
+        // Find views
         Button myAppsButton = findViewById(R.id.myAppsButton);
         Button categoriesButton = findViewById(R.id.categoriesButton);
         Button recommendationsButton = findViewById(R.id.recommendationsButton);
         Button addAppButton = findViewById(R.id.addAppButton);
 
+        // Find recyclerview and set layout and adapter
         RecyclerView recyclerView = findViewById(R.id.mainActivityRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new GenericRecyclerAdapter(this, getAllItems());
         recyclerView.setAdapter(mAdapter);
         recyclerView.setHasFixedSize(true);
+
+        // Add button click listeners
 
         myAppsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 null,
                 null,
                 null,
-                ItemContract.ItemEntry.COLUMN_NAME + " DESC"
+                ItemContract.ItemEntry.COLUMN_DOWNLOAD + " DESC"
         );
     }
 

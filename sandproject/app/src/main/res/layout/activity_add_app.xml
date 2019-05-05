@@ -19,6 +19,18 @@
         android:layout_height="wrap_content"
         android:hint="@string/enter_category"/>
 
+    <EditText
+        android:id="@+id/addAppDownload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_download_count"/>
+
+    <EditText
+        android:id="@+id/addAppVersion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_version_number"/>
+
     <Button
         android:id="@+id/addAppButton"
         android:layout_width="wrap_content"

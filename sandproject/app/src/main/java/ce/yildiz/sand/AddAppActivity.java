@@ -12,6 +12,8 @@ import android.widget.EditText;
 public class AddAppActivity extends AppCompatActivity {
     private EditText mAppName;
     private EditText mCategory;
+    private EditText mDownload;
+    private EditText mVersion;
     private SQLiteDatabase mDatabase;
 
     @Override
@@ -24,6 +26,8 @@ public class AddAppActivity extends AppCompatActivity {
 
         mAppName = findViewById(R.id.addAppName);
         mCategory = findViewById(R.id.addAppCategory);
+        mDownload = findViewById(R.id.addAppDownload);
+        mVersion = findViewById(R.id.addAppVersion);
         Button add = findViewById(R.id.addAppButton);
 
         add.setOnClickListener(new View.OnClickListener() {
@@ -37,16 +41,21 @@ public class AddAppActivity extends AppCompatActivity {
     }
 
     private void addItem() {
-        if (mAppName.getText().toString().trim().length() == 0 ||
-        mCategory.getText().toString().trim().length() == 0) {
-            return;
-        }
+//        if (mAppName.getText().toString().trim().length() == 0 ||
+//        mCategory.getText().toString().trim().length() == 0) {
+//            return;
+//        }
 
         String name = mAppName.getText().toString();
         int category = Integer.parseInt(mCategory.getText().toString());
+        int downloadCount = Integer.parseInt(mDownload.getText().toString());
+        String version = mVersion.getText().toString();
+
         ContentValues cv = new ContentValues();
         cv.put(ItemContract.ItemEntry.COLUMN_NAME, name);
-        cv.put(ItemContract.ItemEntry.COLUMN_AMOUNT, category);
+        cv.put(ItemContract.ItemEntry.COLUMN_CATEGORY, category);
+        cv.put(ItemContract.ItemEntry.COLUMN_DOWNLOAD, downloadCount);
+        cv.put(ItemContract.ItemEntry.COLUMN_VERSION, version);
 
         mDatabase.insert(ItemContract.ItemEntry.TABLE_NAME, null, cv);
     }

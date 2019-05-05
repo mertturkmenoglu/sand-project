@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import ce.yildiz.sand.ItemContract.*;
 
 public class ItemDBHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "itemlist.db";
+    public static final String DATABASE_NAME = "itemList.db";
     public static final int DATABASE_VERSION = 1;
 
     public ItemDBHelper(Context context) {
@@ -19,7 +19,9 @@ public class ItemDBHelper extends SQLiteOpenHelper {
                 ItemEntry.TABLE_NAME + " (" +
                 ItemEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 ItemEntry.COLUMN_NAME + " TEXT NOT NULL, " +
-                ItemEntry.COLUMN_AMOUNT + " INTEGER NOT NULL, " +
+                ItemEntry.COLUMN_CATEGORY + " INTEGER NOT NULL, " +
+                ItemEntry.COLUMN_DOWNLOAD + " INTEGER NOT NULL, " +
+                ItemEntry.COLUMN_VERSION + " TEXT NOT NULL, " +
                 ItemEntry.COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
                 ");";
         db.execSQL(SQL_CREATE_ITEMLIST_TABLE);

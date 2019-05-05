@@ -12,11 +12,13 @@
     <string name="download_count">Download Count: </string>
     <string name="download">Download</string>
     <string name="versions">Versions</string>
-    <string name="top_apps">Top Apps</string>
+    <string name="top_apps">Populars</string>
     <string name="no42">42</string>
     <string name="addApp">Add App</string>
     <string name="example_app_name">Example App</string>
     <string name="example_version_number">1.12.3</string>
     <string name="enter_app_name">App Name: </string>
     <string name="enter_category">Enter Category Number</string>
+    <string name="enter_download_count">Enter Download Count</string>
+    <string name="enter_version_number">Enter Version Number</string>
 </resources>
