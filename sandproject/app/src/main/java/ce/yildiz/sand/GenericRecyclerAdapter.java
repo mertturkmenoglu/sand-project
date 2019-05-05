@@ -21,16 +21,18 @@ public class GenericRecyclerAdapter extends RecyclerView.Adapter<GenericRecycler
 
     public class ItemViewHolder extends RecyclerView.ViewHolder {
         public TextView nameText;
+        public TextView popularityText;
         public ItemViewHolder(View itemView) {
             super(itemView);
             nameText = itemView.findViewById(R.id.appName);
+            popularityText = itemView.findViewById(R.id.appPopularity);
         }
     }
 
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        View view = inflater.inflate(R.layout.custom_list_item, viewGroup, false);
+        View view = inflater.inflate(R.layout.popularity_list_item, viewGroup, false);
         return new ItemViewHolder(view);
     }
 
@@ -44,6 +46,7 @@ public class GenericRecyclerAdapter extends RecyclerView.Adapter<GenericRecycler
         long id = mCursor.getLong(mCursor.getColumnIndex(ItemContract.ItemEntry._ID));
 
         itemViewHolder.nameText.setText(name);
+        itemViewHolder.popularityText.setText(String.valueOf(i + 1));
         itemViewHolder.itemView.setTag(id);
 
         // TODO: Update this method later

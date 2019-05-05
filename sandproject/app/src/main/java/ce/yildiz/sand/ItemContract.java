@@ -14,5 +14,6 @@ public class ItemContract {
         public static final String COLUMN_TIMESTAMP = "timestamp";
         public static final String COLUMN_DOWNLOAD = "download";
         public static final String COLUMN_VERSION = "version";
+        public static final String COLUMN_LOADED = "loaded";
     }
 }

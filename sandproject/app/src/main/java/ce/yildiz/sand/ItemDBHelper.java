@@ -22,6 +22,7 @@ public class ItemDBHelper extends SQLiteOpenHelper {
                 ItemEntry.COLUMN_CATEGORY + " INTEGER NOT NULL, " +
                 ItemEntry.COLUMN_DOWNLOAD + " INTEGER NOT NULL, " +
                 ItemEntry.COLUMN_VERSION + " TEXT NOT NULL, " +
+                ItemEntry.COLUMN_LOADED + " INTEGER NOT NULL, " +
                 ItemEntry.COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
                 ");";
         db.execSQL(SQL_CREATE_ITEMLIST_TABLE);

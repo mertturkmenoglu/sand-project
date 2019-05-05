@@ -12,16 +12,34 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:background="@color/cardview_dark_background"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/sp8">
 
+        <TextView
+            android:id="@+id/appPopularity"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/sp16"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/lightFont"
+            tools:text="@string/no42"
+            android:layout_weight="1"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"/>
         <TextView
                 android:id="@+id/appName"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
-                android:layout_weight="1"
+                android:layout_weight="5"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                android:textColor="@color/lightFont"
                 android:gravity="center_vertical"
                 tools:text="@string/example_app_name"/>
 
