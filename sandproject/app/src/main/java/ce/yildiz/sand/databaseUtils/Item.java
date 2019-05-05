@@ -1,7 +1,7 @@
 package ce.yildiz.sand.databaseUtils;
 
 public class Item {
-    public static final String TABLE_NAME = "notes";
+    public static final String TABLE_NAME = "itemList";
 
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NAME = "name";

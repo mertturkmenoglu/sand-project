@@ -1,7 +1,9 @@
-package ce.yildiz.sand;
+package ce.yildiz.sand.myApps;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import ce.yildiz.sand.R;
 
 public class MyAppsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
