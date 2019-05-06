@@ -52,7 +52,7 @@
             android:id="@+id/appActivityVersions"
             android:textSize="@dimen/sp20"
             android:textColor="@android:color/black"
-            android:text="@string/versions"/>
+            android:text="@string/version"/>
 
         <View
             android:layout_width="match_parent"

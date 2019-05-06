@@ -1,13 +1,19 @@
 package ce.yildiz.sand;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Locale;
+
+import ce.yildiz.sand.databaseUtils.ItemContract;
 import ce.yildiz.sand.databaseUtils.ItemDBHelper;
 
 public class AppActivity extends AppCompatActivity {
@@ -24,9 +30,43 @@ public class AppActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         long appID = intent.getLongExtra("appID", 0);
+        String text;
+        int tmpInt;
 
         ItemDBHelper dbHelper = new ItemDBHelper(this);
         final SQLiteDatabase database = dbHelper.getWritableDatabase();
+
+        Cursor cursor = database.query(
+                    ItemContract.ItemEntry.TABLE_NAME,
+                    null,
+                    "_id =" + appID,
+                    null,
+                    null,
+                    null,
+                    ItemContract.ItemEntry.COLUMN_DOWNLOAD + " DESC"
+        );
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        } else {
+            Log.d("APPACTIVITY", "CURSOR IS NULL");
+        }
+
+        try {
+            text = cursor.getString(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_NAME));
+            header.setText(text);
+
+            tmpInt = cursor.getInt(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_CATEGORY));
+            categoryName.setText(getResources().getString(R.string.category) + " " +  handleCategory(tmpInt));
+
+            tmpInt = cursor.getInt(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_DOWNLOAD));
+            downloadCount.setText(getResources().getString(R.string.download_count) + " " +  String.valueOf(tmpInt));
+
+            text = cursor.getString(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_VERSION));
+            version.setText(getResources().getString(R.string.version) + " " + text);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         Toast.makeText(getApplicationContext(), "Successful", Toast.LENGTH_SHORT).show();
         downloadButton.setOnClickListener(new View.OnClickListener() {
@@ -35,5 +75,30 @@ public class AppActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "UPDATE THIS METHOD", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private String handleCategory(int no) {
+        String s;
+        switch (no) {
+            case 0:
+                s = "music";
+                break;
+            case 1:
+                s = "social";
+                break;
+            case 2:
+                s = "gaming";
+                break;
+            case 3:
+                s = "news";
+                break;
+            case 4:
+                s = "tools";
+                break;
+                default:
+                    s = "Category";
+                    break;
+        }
+        return s;
     }
 }
