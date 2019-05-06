@@ -1,0 +1,231 @@
+sand-project/sandproject/app/src/main/java/ce/yildiz/sand
+--------------
+
+
+AddAppActivity.java
+-------------------
+- public class AddAppActivity extends AppCompatActivity
+- Member Variables:
+    private EditText mAppName
+    private EditText mCategory
+    private EditText mDownload
+    private EditText mVersion
+    private SQLiteDatabase mDatabase
+- Methods:
+    protected void onCreate(Bundle savedInstanceState)
+    private void addItem()
+
+
+AppActivity.java
+----------------
+- public class AppActivity extends AppCompatActivity
+- Member Variables:
+    Does not have any member variable
+- Methods:
+    protected void onCreate(Bundle savedInstanceState)
+    private void downloadApp(Cursor cursor, SQLiteDatabase, database)
+
+
+CategoriesActivity.java
+-----------------------
+- public class CategoriesActivity extends AppCompatActivity
+- Member Variables:
+    Does not have any member variable
+- Methods:
+    protected void onCreate(Bundle savedInstanceState)
+
+
+CategoryActivity.java
+---------------------
+- public class CategoryActivity extends AppCompatActivity
+- Member Variables:
+    private SQLiteDatabase mDatabase
+    private CategoryAdapter mAdapter
+    private int categoryNumber
+- Methods:
+    protected void onCreate(Bundle savedInstanceState)
+    private Cursor getAllItems()
+
+
+CategoryAdapter.java
+--------------------
+- public class CategoryAdapter extends Recyclerview.Adapter<CategoryAdapter.ItemViewHolder>
+- Member Variables:
+    private Context mContext
+    private private Cursor mCursor
+- Inner class:
+    public class ItemViewHolder extends Recyclerview.ViewHolder
+- Methods:
+    public CategoryAdapter(Context context, Cursor cursor)
+    public CategoryAdapter.ItemViewHolder onCreateViewHOlder(Viewgroup v, int i)
+    public void onBindViewHolder(CategoryAdapter.ItemViewHolder holder, final int i)
+    public int getItemCount()
+    public void swapCursor(Cursor newCursor)
+
+Item.java
+---------
+- public class Item
+- Member Variables:
+    public static final String TABLE_NAME
+    public static final String COLUMN_ID
+    public static final String COLUMN_NAME
+    public static final String COLUMN_CATEGORY
+    public static final String COLUMN_DOWNLOAD
+    public static final String COLUMN_VERSION
+    public static final String COLUMN_LOADED
+    public static final String COLUMN_TIMESTAMP
+    public static final String CREATE_TABLE
+    private int id
+    private String name
+    private int category
+    private int download
+    private String version
+    private int loaded
+    private String timestamp
+- Methods:
+    public Item()
+    public Item(int id, String name, int category, int download, String version, int loaded, String timestamp)
+    public static String getTableName()
+    public static String getColumnId()
+    public static String getColumnName()
+    public static String getColumnCategory()
+    public static String getColumnDownload()
+    public static String getColumnVersion()
+    public static String getColumnLoaded()
+    public static String getColumnTimestamp()
+    public int getId()
+    public void setId(int id)
+    public String getName()
+    public void setName(String name)
+    public int getCategory()
+    public void setCategory(int category)
+    public int getDownload()
+    public void setDownload(int download)
+    public String getVersion()
+    public void setVersion(String version)
+    public int getLoaded()
+    public void setLoaded(int loaded)
+    public String getTimestamp()
+    public void setTimestamp(String timestamp)
+    public static String getCreateTable()
+
+
+ItemContract.java
+-----------------
+- public class ItemContract
+- Member Variables:
+    Does not have any member variable
+- Methods:
+    private ItemContract()
+- InnerClass:
+    public static final class ItemEntry implements BaseColumns
+        public static final String TABLE_NAME
+        public static final String COLUMN_ID 
+        public static final String COLUMN_NAME
+        public static final String COLUMN_CATEGORY
+        public static final String COLUMN_DOWNLOAD
+        public static final String COLUMN_VERSION
+        public static final String COLUMN_LOADED
+        public static final String COLUMN_TIMESTAMP
+        public static final String[] COLUMN_NAMES
+
+
+ItemDBHelper.java
+-----------------
+- public class ItemDBHelper extends SQLiteOpenHelper
+- Member Variables:
+    public static final String DATABASE_NAME
+    public static final int DATABASE_VERSION
+- Methods:
+    public ItemDBHelper(Context context)
+    public void onCreate(SQLiteDatabase db)
+    public void onUpgrade(SQLiteDatabase db, int oldVer, int newVer)
+
+
+MainActivity.java
+-----------------
+- public class MainActivity extends AppCompatActivity
+- Member Variables:
+    private SQLiteDatabase mDatabase
+    private PopularityAdapter mAdapter
+- Methods:
+    protected void onCreate(Bundle savedInstanceState)
+    private Cursor getAllItems()
+
+
+PopularityAdapter.java
+-----------------
+- public class PopularityAdapter extends Recyclerview.Adapter<PopularityAdapter.ItemViewHolder>
+- Member Variables:
+    private Context context
+    private Cursor cursor
+- InnerClass:
+     public class ItemViewHolder extends RecyclerView.ViewHolder {
+        public TextView nameText
+        public TextView popularityText
+        public ItemViewHolder(View itemView)
+- Methods:
+    public PopularityAdapter(Context context, Cursor cursor)
+    public PopularityAdapter.ItemViewHolder onCreateViewHolder(ViewGroup viewGroup, int i)
+    public void onBindViewHolder(PopularityAdapter.ItemViewHolder itemViewHolder, final int i)
+    public int getItemCount()
+    public void swapCursor(Cursor newCursor)
+
+
+MyAppsActivity.java
+-------------------
+- public class MyAppsActivity extends AppCompatActivity
+- Member Variables:
+    private SQLiteDatabase mDatabase
+    private MyAppsAdapter mAdapter
+    private static final int loaded
+- Methods:
+    protected void onCreate(Bundle savedInstanceState)
+    private Cursor getAllItems()
+
+
+MyAppsAdapter.java
+-----------------
+- public class MyAppsAdapter extends Recyclerview.Adapter<MyAppsAdapter.ItemViewHolder>
+- Member Variables:
+    private Context context
+    private Cursor cursor
+- InnerClass:
+     public class ItemViewHolder extends RecyclerView.ViewHolder {
+        public TextView nameText
+        public ItemViewHolder(View itemView)
+- Methods:
+    public PopularityAdapter(Context context, Cursor cursor)
+    public MyAppsAdapter.ItemViewHolder onCreateViewHolder(ViewGroup viewGroup, int i)
+    public void onBindViewHolder(MyAppsAdapter.ItemViewHolder itemViewHolder, final int i)
+    public int getItemCount()
+    public void swapCursor(Cursor newCursor)
+
+RecommendationActivity.java
+-------------------
+- public class RecommendationActivity extends AppCompatActivity
+- Member Variables:
+    private SQLiteDatabase mDatabase
+    private RecommendationAdapter mAdapter
+    private static final int loaded
+- Methods:
+    protected void onCreate(Bundle savedInstanceState)
+    private Cursor getAllItems()
+
+
+RecommendationAdapter.java
+-----------------
+- public class RecommendationAdapter extends Recyclerview.Adapter<PopularityAdapter.ItemViewHolder>
+- Member Variables:
+    private Context context
+    private Cursor cursor
+- InnerClass:
+     public class ItemViewHolder extends RecyclerView.ViewHolder {
+        public TextView nameText
+        public ItemViewHolder(View itemView)
+- Methods:
+    public RecommendationAdapter(Context context, Cursor cursor)
+    public RecommendationAdapter.ItemViewHolder onCreateViewHolder(ViewGroup viewGroup, int i)
+    public void onBindViewHolder(RecommendationAdapter.ItemViewHolder itemViewHolder, final int i)
+    public int getItemCount()
+    public void swapCursor(Cursor newCursor)
