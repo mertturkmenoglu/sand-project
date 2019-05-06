@@ -27,25 +27,7 @@ public class CategoryActivity extends AppCompatActivity {
         TextView header = findViewById(R.id.categoryActivityHeader);
         categoryNumber = intent.getIntExtra("category", -1);
 
-        switch (categoryNumber) {
-            case 0:
-                header.setText(getResources().getString(R.string.music));
-                break;
-            case 1:
-                header.setText(getResources().getString(R.string.social));
-                break;
-            case 2:
-                header.setText(getResources().getString(R.string.gaming));
-                break;
-            case 3:
-                header.setText(getResources().getString(R.string.news));
-                break;
-            case 4:
-                header.setText(getResources().getString(R.string.tools));
-                break;
-            case -1:
-                header.setText(getResources().getString(R.string.app_name));
-        }
+        header.setText(getCategoryName(categoryNumber));
 
         // Open database connection
         ItemDBHelper dbHelper = new ItemDBHelper(this);
@@ -57,6 +39,30 @@ public class CategoryActivity extends AppCompatActivity {
         mAdapter = new CategoryAdapter(this, getAllItems());
         recyclerView.setAdapter(mAdapter);
         recyclerView.setHasFixedSize(true);
+    }
+
+    private String getCategoryName(int categoryNumber) {
+        String s = "";
+        switch (categoryNumber) {
+            case 0:
+                s = getResources().getString(R.string.music);
+                break;
+            case 1:
+                s = getResources().getString(R.string.social);
+                break;
+            case 2:
+                s = getResources().getString(R.string.gaming);
+                break;
+            case 3:
+                s = getResources().getString(R.string.news);
+                break;
+            case 4:
+                s = getResources().getString(R.string.tools);
+                break;
+            case -1:
+                s = getResources().getString(R.string.app_name);
+        }
+        return s;
     }
 
     private Cursor getAllItems() {
