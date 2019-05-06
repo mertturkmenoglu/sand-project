@@ -11,8 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Locale;
-
 import ce.yildiz.sand.databaseUtils.ItemContract;
 import ce.yildiz.sand.databaseUtils.ItemDBHelper;
 

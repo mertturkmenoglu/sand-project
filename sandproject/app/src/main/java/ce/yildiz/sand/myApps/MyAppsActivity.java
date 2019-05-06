@@ -37,7 +37,7 @@ public class MyAppsActivity extends AppCompatActivity {
         return mDatabase.query(
                 ItemContract.ItemEntry.TABLE_NAME,
                 null,
-                null,
+                ItemContract.ItemEntry.COLUMN_LOADED + "=" + loaded,
                 null,
                 null,
                 null,

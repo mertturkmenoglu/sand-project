@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+
 import ce.yildiz.sand.R;
 import ce.yildiz.sand.databaseUtils.ItemContract;
 import ce.yildiz.sand.databaseUtils.ItemDBHelper;
@@ -34,15 +36,22 @@ public class RecommendationActivity extends AppCompatActivity {
 
     // TODO: Change this
     private Cursor getAllItems() {
-        return mDatabase.query(
+        Cursor cursor = mDatabase.query(
                 ItemContract.ItemEntry.TABLE_NAME,
                 null,
+                ItemContract.ItemEntry.COLUMN_LOADED + " = " + loaded,
                 null,
                 null,
                 null,
-                null,
-                null
+                ItemContract.ItemEntry.COLUMN_TIMESTAMP + " DESC"
         );
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        } else {
+            Log.d(RecommendationActivity.class.getSimpleName(), "CURSOR IS NULL");
+        }
+        return cursor;
     }
 
 }
