@@ -1,5 +1,6 @@
 package ce.yildiz.sand;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -34,7 +35,7 @@ public class AppActivity extends AppCompatActivity {
         ItemDBHelper dbHelper = new ItemDBHelper(this);
         final SQLiteDatabase database = dbHelper.getWritableDatabase();
 
-        Cursor cursor = database.query(
+        final Cursor cursor = database.query(
                     ItemContract.ItemEntry.TABLE_NAME,
                     null,
                     "_id =" + appID,
@@ -71,6 +72,7 @@ public class AppActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "UPDATE THIS METHOD", Toast.LENGTH_SHORT).show();
+                downloadApp(cursor, database);
             }
         });
     }
@@ -98,5 +100,24 @@ public class AppActivity extends AppCompatActivity {
                     break;
         }
         return s;
+    }
+
+    private void downloadApp(Cursor cursor, SQLiteDatabase database) {
+        long id = cursor.getLong(cursor.getColumnIndex(ItemContract.ItemEntry._ID));
+        String name = cursor.getString(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_NAME));
+        int category = cursor.getInt(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_CATEGORY));
+        int downloadCount = cursor.getInt(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_DOWNLOAD));
+        String version = cursor.getString(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_VERSION));
+
+        ContentValues cv = new ContentValues();
+        cv.put(ItemContract.ItemEntry.COLUMN_NAME, name);
+        cv.put(ItemContract.ItemEntry.COLUMN_CATEGORY, category);
+        cv.put(ItemContract.ItemEntry.COLUMN_DOWNLOAD, downloadCount);
+        cv.put(ItemContract.ItemEntry.COLUMN_VERSION, version);
+        cv.put(ItemContract.ItemEntry.COLUMN_LOADED, 1);
+
+        database.delete(ItemContract.ItemEntry.TABLE_NAME, ItemContract.ItemEntry._ID + "=" + id, null);
+
+        database.insert(ItemContract.ItemEntry.TABLE_NAME, null, cv);
     }
 }

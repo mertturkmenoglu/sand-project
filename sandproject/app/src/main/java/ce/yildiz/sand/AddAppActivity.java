@@ -45,11 +45,6 @@ public class AddAppActivity extends AppCompatActivity {
     }
 
     private void addItem() {
-//        if (mAppName.getText().toString().trim().length() == 0 ||
-//        mCategory.getText().toString().trim().length() == 0) {
-//            return;
-//        }
-
         String name = mAppName.getText().toString();
         int category = Integer.parseInt(mCategory.getText().toString());
         int downloadCount = Integer.parseInt(mDownload.getText().toString());
