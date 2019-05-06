@@ -1,6 +1,7 @@
 package ce.yildiz.sand.recommendations;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import ce.yildiz.sand.AppActivity;
 import ce.yildiz.sand.R;
 import ce.yildiz.sand.databaseUtils.ItemContract;
 
@@ -52,6 +54,9 @@ public class RecommendationAdapter extends RecyclerView.Adapter<RecommendationAd
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(), "Clicked to " + i + "-th item", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext, AppActivity.class);
+                intent.putExtra("appID", id);
+                mContext.startActivity(intent);
             }
         });
     }
