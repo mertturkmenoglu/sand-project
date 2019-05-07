@@ -75,7 +75,7 @@ public class AppActivity extends AppCompatActivity {
         });
     }
 
-    private String handleCategory(int no) {
+    public String handleCategory(int no) {
         String s;
         switch (no) {
             case 0:
