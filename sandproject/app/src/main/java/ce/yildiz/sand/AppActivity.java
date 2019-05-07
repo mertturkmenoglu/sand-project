@@ -67,11 +67,9 @@ public class AppActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Toast.makeText(getApplicationContext(), "Successful", Toast.LENGTH_SHORT).show();
         downloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "UPDATE THIS METHOD", Toast.LENGTH_SHORT).show();
                 downloadApp(cursor, database);
             }
         });
@@ -112,7 +110,7 @@ public class AppActivity extends AppCompatActivity {
         ContentValues cv = new ContentValues();
         cv.put(ItemContract.ItemEntry.COLUMN_NAME, name);
         cv.put(ItemContract.ItemEntry.COLUMN_CATEGORY, category);
-        cv.put(ItemContract.ItemEntry.COLUMN_DOWNLOAD, downloadCount);
+        cv.put(ItemContract.ItemEntry.COLUMN_DOWNLOAD, downloadCount + 1);
         cv.put(ItemContract.ItemEntry.COLUMN_VERSION, version);
         cv.put(ItemContract.ItemEntry.COLUMN_LOADED, 1);
 

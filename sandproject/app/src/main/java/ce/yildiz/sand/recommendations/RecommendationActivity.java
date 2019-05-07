@@ -34,7 +34,6 @@ public class RecommendationActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
     }
 
-    // TODO: Change this
     private Cursor getAllItems() {
         Cursor cursor = mDatabase.query(
                 ItemContract.ItemEntry.TABLE_NAME,

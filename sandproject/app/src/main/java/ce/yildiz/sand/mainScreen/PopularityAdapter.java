@@ -55,11 +55,9 @@ public class PopularityAdapter extends RecyclerView.Adapter<PopularityAdapter.It
         itemViewHolder.popularityText.setText(String.valueOf(i + 1));
         itemViewHolder.itemView.setTag(id);
 
-        // TODO: Update this method later
         itemViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Clicked to " + i + "-th item", Toast.LENGTH_SHORT).show();
+            public void onClick(View v) { ;
                 Intent intent = new Intent(mContext, AppActivity.class);
                 intent.putExtra("appID", id);
                 mContext.startActivity(intent);

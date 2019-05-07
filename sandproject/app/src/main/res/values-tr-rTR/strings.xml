@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Software Merchant</string>
+    <string name="myApps">Uygulamalarım</string>
+    <string name="categories">Kategoriler</string>
+    <string name="music">Müzik</string>
+    <string name="social">Sosyal</string>
+    <string name="gaming">Oyun</string>
+    <string name="news">Haber</string>
+    <string name="tools">Araçlar</string>
+    <string name="recommendations">Öneriler</string>
+    <string name="category">Kategori:</string>
+    <string name="download_count">İndirilme:</string>
+    <string name="download">İndir</string>
+    <string name="version">Versiyon:</string>
+    <string name="top_apps">Popüler</string>
+    <string name="no42">42</string>
+    <string name="addApp">Ekle</string>
+    <string name="example_app_name">Örnek Uygulama</string>
+    <string name="example_version_number">1.12.3</string>
+    <string name="enter_app_name">Ad:</string>
+    <string name="enter_category">Kategori Numarası Girin</string>
+    <string name="enter_download_count">İndirilme Sayısı Girin</string>
+    <string name="enter_version_number">Versiyon Numarası Girin</string>
+    <string name="recommendations_short">Öneri</string>
+</resources>

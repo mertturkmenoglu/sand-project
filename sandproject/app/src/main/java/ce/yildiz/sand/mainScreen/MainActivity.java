@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         myAppsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "My Apps Button Clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, MyAppsActivity.class);
                 startActivity(intent);
             }
@@ -61,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
         categoriesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "CategoriesActivity Button Clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, CategoriesActivity.class);
                 startActivity(intent);
             }
@@ -70,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
         recommendationsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Recommendations Button Clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, RecommendationActivity.class);
                 startActivity(intent);
             }
@@ -79,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
         addAppButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Add App Button Clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, AddAppActivity.class);
                 startActivity(intent);
             }

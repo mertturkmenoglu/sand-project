@@ -49,11 +49,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ItemVi
         itemViewHolder.nameText.setText(name);
         itemViewHolder.itemView.setTag(id);
 
-        // TODO: Update this method later
         itemViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Clicked to " + i + "-th item", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(mContext, AppActivity.class);
                 intent.putExtra("appID", id);
                 mContext.startActivity(intent);

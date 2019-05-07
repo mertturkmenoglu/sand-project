@@ -23,7 +23,6 @@ public class CategoriesActivity extends AppCompatActivity {
         musicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Music Button Clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(CategoriesActivity.this, CategoryActivity.class);
                 intent.putExtra("category", 0);
                 startActivity(intent);
@@ -33,7 +32,6 @@ public class CategoriesActivity extends AppCompatActivity {
         socialButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Social Button Clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(CategoriesActivity.this, CategoryActivity.class);
                 intent.putExtra("category", 1);
                 startActivity(intent);
@@ -43,7 +41,6 @@ public class CategoriesActivity extends AppCompatActivity {
         gamingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Gaming Button Clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(CategoriesActivity.this, CategoryActivity.class);
                 intent.putExtra("category", 2);
                 startActivity(intent);
@@ -54,7 +51,6 @@ public class CategoriesActivity extends AppCompatActivity {
         newsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "News Button Clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(CategoriesActivity.this, CategoryActivity.class);
                 intent.putExtra("category", 3);
                 startActivity(intent);
@@ -64,7 +60,6 @@ public class CategoriesActivity extends AppCompatActivity {
         toolsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Tools Button Clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(CategoriesActivity.this, CategoryActivity.class);
                 intent.putExtra("category", 4);
                 startActivity(intent);
