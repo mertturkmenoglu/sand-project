@@ -24,6 +24,7 @@ import ce.yildiz.sand.recommendations.RecommendationActivity;
 public class MainActivity extends AppCompatActivity {
     private SQLiteDatabase mDatabase;
     private PopularityAdapter mAdapter;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         Button addAppButton = findViewById(R.id.addAppButton);
 
         // Find recyclerview and set layout and adapter
-        RecyclerView recyclerView = findViewById(R.id.mainActivityRecyclerView);
+        recyclerView = findViewById(R.id.mainActivityRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new PopularityAdapter(this, getAllItems());
         recyclerView.setAdapter(mAdapter);

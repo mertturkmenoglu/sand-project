@@ -102,6 +102,12 @@ public class AppActivity extends AppCompatActivity {
 
     private void downloadApp(Cursor cursor, SQLiteDatabase database) {
         long id = cursor.getLong(cursor.getColumnIndex(ItemContract.ItemEntry._ID));
+        int loaded = cursor.getInt(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_LOADED));
+
+        if (loaded == 1) {
+            return;
+        }
+
         String name = cursor.getString(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_NAME));
         int category = cursor.getInt(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_CATEGORY));
         int downloadCount = cursor.getInt(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_DOWNLOAD));
