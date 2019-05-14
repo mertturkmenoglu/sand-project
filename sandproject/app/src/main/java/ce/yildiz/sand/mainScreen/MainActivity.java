@@ -3,15 +3,12 @@ package ce.yildiz.sand.mainScreen;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import ce.yildiz.sand.AddAppActivity;
 import ce.yildiz.sand.CategoriesActivity;
@@ -23,8 +20,6 @@ import ce.yildiz.sand.recommendations.RecommendationActivity;
 
 public class MainActivity extends AppCompatActivity {
     private SQLiteDatabase mDatabase;
-    private PopularityAdapter mAdapter;
-    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +36,11 @@ public class MainActivity extends AppCompatActivity {
         Button recommendationsButton = findViewById(R.id.recommendationsButton);
         Button addAppButton = findViewById(R.id.addAppButton);
 
-        // Find recyclerview and set layout and adapter
-        recyclerView = findViewById(R.id.mainActivityRecyclerView);
+        // Find recyclerView and set layout and adapter
+        RecyclerView recyclerView = findViewById(R.id.mainActivityRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter = new PopularityAdapter(this, getAllItems());
-        recyclerView.setAdapter(mAdapter);
+        PopularityAdapter adapter = new PopularityAdapter(this, getAllItems());
+        recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
 
         // Add button click listeners

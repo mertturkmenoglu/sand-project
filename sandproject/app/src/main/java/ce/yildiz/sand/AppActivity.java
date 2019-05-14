@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import ce.yildiz.sand.databaseUtils.ItemContract;
 import ce.yildiz.sand.databaseUtils.ItemDBHelper;
@@ -50,21 +49,22 @@ public class AppActivity extends AppCompatActivity {
         if (cursor != null) {
             cursor.moveToFirst();
         } else {
-            Log.d("APPACTIVITY", "CURSOR IS NULL");
+            Log.d("APP ACTIVITY", "CURSOR IS NULL");
         }
 
         try {
+            assert cursor != null;
             text = cursor.getString(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_NAME));
             header.setText(text);
 
             tmpInt = cursor.getInt(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_CATEGORY));
-            categoryName.setText(getResources().getString(R.string.category) + " " +  handleCategory(tmpInt));
+            categoryName.setText(String.format("%s %s", getResources().getString(R.string.category), handleCategory(tmpInt)));
 
             tmpInt = cursor.getInt(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_DOWNLOAD));
-            downloadCount.setText(getResources().getString(R.string.download_count) + " " +  String.valueOf(tmpInt));
+            downloadCount.setText(String.format("%s %s", getResources().getString(R.string.download_count), String.valueOf(tmpInt)));
 
             text = cursor.getString(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_VERSION));
-            version.setText(getResources().getString(R.string.version) + " " + text);
+            version.setText(String.format("%s %s", getResources().getString(R.string.version), text));
         } catch (Exception e) {
             e.printStackTrace();
         }

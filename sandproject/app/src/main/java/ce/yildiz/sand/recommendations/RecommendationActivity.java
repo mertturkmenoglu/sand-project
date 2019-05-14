@@ -14,7 +14,6 @@ import ce.yildiz.sand.databaseUtils.ItemDBHelper;
 
 public class RecommendationActivity extends AppCompatActivity {
     private SQLiteDatabase mDatabase;
-    private RecommendationAdapter mAdapter;
     private static final int loaded = 0;
 
     @Override
@@ -26,11 +25,11 @@ public class RecommendationActivity extends AppCompatActivity {
         ItemDBHelper dbHelper = new ItemDBHelper(this);
         mDatabase = dbHelper.getWritableDatabase();
 
-        // Find recyclerview and set layout and adapter
+        // Find recyclerView and set layout and adapter
         RecyclerView recyclerView = findViewById(R.id.recommendationActivityRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter = new RecommendationAdapter(this, getAllItems());
-        recyclerView.setAdapter(mAdapter);
+        RecommendationAdapter adapter = new RecommendationAdapter(this, getAllItems());
+        recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
     }
 

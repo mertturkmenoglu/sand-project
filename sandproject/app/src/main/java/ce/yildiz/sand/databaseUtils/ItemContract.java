@@ -2,6 +2,7 @@ package ce.yildiz.sand.databaseUtils;
 
 import android.provider.BaseColumns;
 
+@SuppressWarnings("unused")
 public class ItemContract {
     private ItemContract() {
 

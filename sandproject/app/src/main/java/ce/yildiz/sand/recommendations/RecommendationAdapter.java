@@ -3,17 +3,18 @@ package ce.yildiz.sand.recommendations;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import ce.yildiz.sand.AppActivity;
 import ce.yildiz.sand.R;
 import ce.yildiz.sand.databaseUtils.ItemContract;
 
+@SuppressWarnings("WeakerAccess")
 public class RecommendationAdapter extends RecyclerView.Adapter<RecommendationAdapter.ItemViewHolder> {
     private Context mContext;
     private Cursor mCursor;
@@ -32,13 +33,15 @@ public class RecommendationAdapter extends RecyclerView.Adapter<RecommendationAd
         }
     }
 
-    public RecommendationAdapter.ItemViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    @NonNull
+    @Override
+    public RecommendationAdapter.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(mContext);
         View view = inflater.inflate(R.layout.basic_list_item, viewGroup, false);
         return new RecommendationAdapter.ItemViewHolder(view);
     }
 
-    public void onBindViewHolder(RecommendationAdapter.ItemViewHolder itemViewHolder, final int i) {
+    public void onBindViewHolder(@NonNull RecommendationAdapter.ItemViewHolder itemViewHolder, final int i) {
         if (!mCursor.moveToPosition(i)) {
             return;
         }
@@ -64,6 +67,7 @@ public class RecommendationAdapter extends RecyclerView.Adapter<RecommendationAd
         return mCursor.getCount();
     }
 
+    @SuppressWarnings("unused")
     public void swapCursor(Cursor newCursor) {
         if (mCursor != null) {
             mCursor.close();

@@ -3,18 +3,18 @@ package ce.yildiz.sand.mainScreen;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import ce.yildiz.sand.AppActivity;
 import ce.yildiz.sand.databaseUtils.ItemContract;
 import ce.yildiz.sand.R;
 
-
+@SuppressWarnings("WeakerAccess")
 public class PopularityAdapter extends RecyclerView.Adapter<PopularityAdapter.ItemViewHolder> {
     private Context mContext;
     private Cursor mCursor;
@@ -35,15 +35,16 @@ public class PopularityAdapter extends RecyclerView.Adapter<PopularityAdapter.It
         }
     }
 
+    @NonNull
     @Override
-    public ItemViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(mContext);
         View view = inflater.inflate(R.layout.popularity_list_item, viewGroup, false);
         return new ItemViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ItemViewHolder itemViewHolder, final int i) {
+    public void onBindViewHolder(@NonNull ItemViewHolder itemViewHolder, final int i) {
         if (!mCursor.moveToPosition(i)) {
             return;
         }
@@ -57,7 +58,7 @@ public class PopularityAdapter extends RecyclerView.Adapter<PopularityAdapter.It
 
         itemViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { ;
+            public void onClick(View v) {
                 Intent intent = new Intent(mContext, AppActivity.class);
                 intent.putExtra("appID", id);
                 mContext.startActivity(intent);
@@ -70,6 +71,7 @@ public class PopularityAdapter extends RecyclerView.Adapter<PopularityAdapter.It
         return mCursor.getCount();
     }
 
+    @SuppressWarnings("unused")
     public void swapCursor(Cursor newCursor) {
         if (mCursor != null) {
             mCursor.close();

@@ -13,7 +13,6 @@ import ce.yildiz.sand.databaseUtils.ItemDBHelper;
 
 public class MyAppsActivity extends AppCompatActivity {
     private SQLiteDatabase mDatabase;
-    private MyAppsAdapter mAdapter;
     private static final int loaded = 1;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +25,8 @@ public class MyAppsActivity extends AppCompatActivity {
         // Find recyclerview and set layout and adapter
         RecyclerView recyclerView = findViewById(R.id.myAppsActivityRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter = new MyAppsAdapter(this, getAllItems());
-        recyclerView.setAdapter(mAdapter);
+        MyAppsAdapter adapter = new MyAppsAdapter(this, getAllItems());
+        recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
     }
 

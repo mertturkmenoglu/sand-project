@@ -1,5 +1,6 @@
 package ce.yildiz.sand.databaseUtils;
 
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class Item {
     public static final String TABLE_NAME = "itemList";
 

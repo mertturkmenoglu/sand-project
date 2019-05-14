@@ -15,7 +15,6 @@ import ce.yildiz.sand.databaseUtils.ItemDBHelper;
 
 public class CategoryActivity extends AppCompatActivity {
     private SQLiteDatabase mDatabase;
-    private CategoryAdapter mAdapter;
     private int categoryNumber;
 
     @Override
@@ -33,11 +32,11 @@ public class CategoryActivity extends AppCompatActivity {
         ItemDBHelper dbHelper = new ItemDBHelper(this);
         mDatabase = dbHelper.getWritableDatabase();
 
-        // Find recyclerview and set layout and adapter
+        // Find recyclerView and set layout and adapter
         RecyclerView recyclerView = findViewById(R.id.categoryActivityRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter = new CategoryAdapter(this, getAllItems());
-        recyclerView.setAdapter(mAdapter);
+        CategoryAdapter adapter = new CategoryAdapter(this, getAllItems());
+        recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
     }
 
