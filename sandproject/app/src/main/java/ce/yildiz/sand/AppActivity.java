@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import ce.yildiz.sand.databaseUtils.ItemContract;
 import ce.yildiz.sand.databaseUtils.ItemDBHelper;
@@ -114,6 +115,7 @@ public class AppActivity extends AppCompatActivity {
         int loaded = cursor.getInt(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_LOADED));
 
         if (loaded == 1) {
+            Toast.makeText(getApplicationContext(), getApplicationContext().getResources().getString(R.string.download_error), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -130,8 +132,9 @@ public class AppActivity extends AppCompatActivity {
         cv.put(ItemContract.ItemEntry.COLUMN_LOADED, 1);
 
         database.delete(ItemContract.ItemEntry.TABLE_NAME, ItemContract.ItemEntry._ID + "=" + id, null);
-
         database.insert(ItemContract.ItemEntry.TABLE_NAME, null, cv);
+
+        Toast.makeText(getApplicationContext(), getApplicationContext().getResources().getString(R.string.download_success), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(AppActivity.this, MainActivity.class);
         startActivity(intent);
     }
@@ -141,6 +144,7 @@ public class AppActivity extends AppCompatActivity {
         int loaded = cursor.getInt(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_LOADED));
 
         if (loaded == 0) {
+            Toast.makeText(getApplicationContext(), getApplicationContext().getResources().getString(R.string.remove_error), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -157,8 +161,9 @@ public class AppActivity extends AppCompatActivity {
         cv.put(ItemContract.ItemEntry.COLUMN_LOADED, 0);
 
         database.delete(ItemContract.ItemEntry.TABLE_NAME, ItemContract.ItemEntry._ID + "=" + id, null);
-
         database.insert(ItemContract.ItemEntry.TABLE_NAME, null, cv);
+
+        Toast.makeText(getApplicationContext(), getApplicationContext().getResources().getString(R.string.remove_success), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(AppActivity.this, MainActivity.class);
         startActivity(intent);
     }

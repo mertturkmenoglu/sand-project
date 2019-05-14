@@ -23,4 +23,8 @@
     <string name="enter_version_number">Enter Version Number</string>
     <string name="recommendations_short">Recommend</string>
     <string name="remove">Remove</string>
+    <string name="download_error">App is already downloaded</string>
+    <string name="remove_error">App is not downloaded</string>
+    <string name="download_success">App Downloaded</string>
+    <string name="remove_success">App is removed</string>
 </resources>
