@@ -23,4 +23,5 @@
     <string name="enter_download_count">İndirilme Sayısı Girin</string>
     <string name="enter_version_number">Versiyon Numarası Girin</string>
     <string name="recommendations_short">Öneri</string>
+    <string name="remove">Kaldır</string>
 </resources>

@@ -22,4 +22,5 @@
     <string name="enter_download_count">Enter Download Count</string>
     <string name="enter_version_number">Enter Version Number</string>
     <string name="recommendations_short">Recommend</string>
+    <string name="remove">Remove</string>
 </resources>

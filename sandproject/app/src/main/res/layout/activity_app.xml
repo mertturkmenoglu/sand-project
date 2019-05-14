@@ -66,6 +66,13 @@
             android:text="@string/download"
             android:textSize="@dimen/sp20"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/appActivityRemoveButton"
+            android:text="@string/remove"
+            android:textSize="@dimen/sp20"/>
+
     </LinearLayout>
 
 </LinearLayout>

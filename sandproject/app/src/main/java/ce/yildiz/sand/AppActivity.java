@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import ce.yildiz.sand.databaseUtils.ItemContract;
 import ce.yildiz.sand.databaseUtils.ItemDBHelper;
+import ce.yildiz.sand.mainScreen.MainActivity;
 
 public class AppActivity extends AppCompatActivity {
     @Override
@@ -26,6 +27,7 @@ public class AppActivity extends AppCompatActivity {
         TextView downloadCount = findViewById(R.id.appActivityDownloadCount);
         TextView version = findViewById(R.id.appActivityVersions);
         Button downloadButton = findViewById(R.id.appActivityDownloadButton);
+        Button removeButton = findViewById(R.id.appActivityRemoveButton);
 
         Intent intent = getIntent();
         long appID = intent.getLongExtra("appID", 0);
@@ -71,6 +73,13 @@ public class AppActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 downloadApp(cursor, database);
+            }
+        });
+
+        removeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeApp(cursor, database);
             }
         });
     }
@@ -123,5 +132,34 @@ public class AppActivity extends AppCompatActivity {
         database.delete(ItemContract.ItemEntry.TABLE_NAME, ItemContract.ItemEntry._ID + "=" + id, null);
 
         database.insert(ItemContract.ItemEntry.TABLE_NAME, null, cv);
+        Intent intent = new Intent(AppActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    private void removeApp(Cursor cursor, SQLiteDatabase database) {
+        long id = cursor.getLong(cursor.getColumnIndex(ItemContract.ItemEntry._ID));
+        int loaded = cursor.getInt(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_LOADED));
+
+        if (loaded == 0) {
+            return;
+        }
+
+        String name = cursor.getString(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_NAME));
+        int category = cursor.getInt(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_CATEGORY));
+        int downloadCount = cursor.getInt(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_DOWNLOAD));
+        String version = cursor.getString(cursor.getColumnIndex(ItemContract.ItemEntry.COLUMN_VERSION));
+
+        ContentValues cv = new ContentValues();
+        cv.put(ItemContract.ItemEntry.COLUMN_NAME, name);
+        cv.put(ItemContract.ItemEntry.COLUMN_CATEGORY, category);
+        cv.put(ItemContract.ItemEntry.COLUMN_DOWNLOAD, downloadCount - 1);
+        cv.put(ItemContract.ItemEntry.COLUMN_VERSION, version);
+        cv.put(ItemContract.ItemEntry.COLUMN_LOADED, 0);
+
+        database.delete(ItemContract.ItemEntry.TABLE_NAME, ItemContract.ItemEntry._ID + "=" + id, null);
+
+        database.insert(ItemContract.ItemEntry.TABLE_NAME, null, cv);
+        Intent intent = new Intent(AppActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }
